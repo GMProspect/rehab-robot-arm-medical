@@ -1,9 +1,8 @@
 # Brazo Robótico de Rehabilitación Médica (CPM)
 > *Sistema de Movimiento Pasivo Continuo (CPM) con bio-feedback médico para recuperación de movilidad.*
 
-![Robotic Arm Banner](ruta/a/banner_robot.jpg)
 
-## 🚩 El Desafío Médico
+
 La rehabilitación física requiere movimientos precisos, repetitivos y controlados para evitar atrofia muscular. Los equipos comerciales son costosos y difíciles de personalizar según la evolución del paciente. Se necesitaba una solución accesible que permitiera a los médicos ajustar parámetros (ángulo, velocidad, fuerza) en tiempo real.
 
 ## 💡 La Solución
