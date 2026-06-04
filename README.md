@@ -30,4 +30,4 @@ Proyecto académico/investigación con fines médicos.
 
 ---
 **Gustavo Matheus**
-*Ingeniero de Desarrollo*
+*Lead Developer*
