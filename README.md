@@ -29,5 +29,4 @@ La rehabilitación física requiere movimientos precisos, repetitivos y controla
 Proyecto académico/investigación con fines médicos.
 
 ---
-**Gustavo Matheus**
-*Lead Developer*
+*Created by [GMProspect](https://github.com/GMProspect)*
