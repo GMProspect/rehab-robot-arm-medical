@@ -1,47 +1,80 @@
 <div align="center">
-  <h1>🦾 Robotic Rehabilitation Arm</h1>
-  <p><em>Accessible Continuous Passive Motion System</em></p>
-  
-  [![Status](https://img.shields.io/badge/Status-Active-success.svg)]()
-  [![License](https://img.shields.io/badge/License-Proprietary-blue.svg)]()
+  <h1>🦾 Brazo Robótico de Rehabilitación Médica (CPM)</h1>
+  <p><em>Sistema de Movimiento Pasivo Continuo (CPM) accesible para recuperación de movilidad en miembro superior</em></p>
+
+  [![Status](https://img.shields.io/badge/Prototipo-Validado-success.svg)]()
+  [![Hardware](https://img.shields.io/badge/MCU-Arduino%20%2F%20ESP32-blue.svg)]()
+  [![3D Printing](https://img.shields.io/badge/Estructura-PLA%2B%20%2B%20Aluminio-silver.svg)]()
 </div>
 
 ---
-## 🛠️ Tech Stack
-![C++](https://img.shields.io/badge/-C++-black?style=flat-square) ![Arduino](https://img.shields.io/badge/-Arduino-black?style=flat-square) ![Robotics](https://img.shields.io/badge/-Robotics-black?style=flat-square)
+
+## 🎯 El Problema
+
+Los equipos CPM (Continuous Passive Motion) comerciales utilizados en hospitales para la rehabilitación de hombro, codo y muñeca tienen dos problemas fundamentales:
+
+1. **Costo prohibitivo**: Un equipo importado puede costar entre $3,000 y $15,000 USD, haciéndolos inaccesibles para centros de salud públicos y clínicas pequeñas en Venezuela.
+2. **Inflexibilidad**: Los parámetros clínicos (rango de movimiento, velocidad, fuerza de resistencia) están preconfigurados por el fabricante y no pueden adaptarse fácilmente a la evolución individual del paciente.
 
 ---
 
-# Brazo Robótico de Rehabilitación Médica (CPM)
-> *Sistema de Movimiento Pasivo Continuo (CPM) con bio-feedback médico para recuperación de movilidad.*
+## 💡 La Solución: Diseño Multidisciplinario
 
+Este proyecto fue el resultado de una colaboración técnica donde el aporte principal fue el **desarrollo de software y la arquitectura de control**, mientras el diseño mecánico y la validación clínica involucraron a especialistas de otras áreas.
 
-
-La rehabilitación física requiere movimientos precisos, repetitivos y controlados para evitar atrofia muscular. Los equipos comerciales son costosos y difíciles de personalizar según la evolución del paciente. Se necesitaba una solución accesible que permitiera a los médicos ajustar parámetros (ángulo, velocidad, fuerza) en tiempo real.
-
-## 💡 La Solución
-**Colaboración Técnica Multidisciplinaria**: Liderazgo en el desarrollo de software y lógica de control para un brazo robótico de 3 grados de libertad. El sistema mecánico fue desarrollado en conjunto con especialistas, mientras que la inteligencia, la interfaz y la optimización del sistema fueron el foco de este desarrollo.
-
-### Responsabilidades & Aporte
-- ✅ **Arquitectura de Software**: Desarrollo del firmware de control y la interfaz de usuario.
-- ✅ **Optimización de Sistemas**: Mejora de la respuesta de los servomotores y la fuente de alimentación.
-- ✅ **Integración de Feedback**: Traducción de requerimientos médicos a lógica de programación segura.
-
-### Tecnologías Utilizadas
-| Categoría | Tecnologías |
-|-----------|-------------|
-| **Microcontrolador** | Arduino / ESP32 |
-| **Actuadores** | Servomotores de alto torque / Motores DC con Encoder |
-| **Potencia** | Diseño de PCB propio (Puente H, Regulación de Voltaje) |
-| **Materiales** | PLA+ (Impresión 3D), Aluminio |
-
-## 🚀 Impacto
-- **Validación Clínica**: Prototipo probado con feedback positivo de personal de salud.
-- **Accesibilidad**: Reducción de costos del 80% frente a equipos CPM comerciales.
-
-## 🔒 Nota
-Proyecto académico/investigación con fines médicos.
+El sistema resultante tiene 3 grados de libertad y permite ejercitar flexión/extensión de codo, rotación de antebrazo y movimientos combinados de muñeca.
 
 ---
-**Gustavo Matheus**
-*Ingeniero de Desarrollo*
+
+## 🏗️ Arquitectura del Sistema de Control
+
+```mermaid
+flowchart LR
+    UI["Interfaz Médico\n(Display OLED / App Web Local)"]
+    MCU["Microcontrolador\n(Arduino / ESP32)"]
+    BRIDGE["Puente H (PCB Propio)\n+ Regulación de Voltaje"]
+    MOTORS["Servomotores de Alto Torque\n+ Motores DC con Encoder"]
+    SENSOR["Encoders / Sensores de Límite"]
+
+    UI -- "Parámetros: Ángulo, Vel., Ciclos" --> MCU
+    MCU -- "PWM / Señal de Control" --> BRIDGE
+    BRIDGE -- "Corriente Regulada" --> MOTORS
+    MOTORS -- "Retroalimentación de Posición" --> SENSOR
+    SENSOR -- "Señal de Feedback" --> MCU
+```
+
+---
+
+## 🛠️ Stack Técnico
+
+| Categoría | Componentes |
+|---|---|
+| **Microcontrolador** | Arduino UNO / ESP32 (según módulo) |
+| **Firmware** | C++ (Arduino IDE), lógica de control de movimiento segura |
+| **Interfaz de Usuario** | Display OLED I2C + controles físicos (encoders rotativos) |
+| **Electrónica de Potencia** | PCB custom: Puente H (L298N mejorado), regulador de voltaje LM7812 |
+| **Actuadores** | Servomotores MG996R + Motores DC con encoder de cuadratura |
+| **Materiales** | PLA+ (Impresión 3D FDM), perfiles de aluminio estructural |
+
+---
+
+## 📐 Parámetros Clínicos Configurables
+
+| Parámetro | Rango | Unidad |
+|---|---|---|
+| Ángulo de Flexión | 0° — 135° | Grados |
+| Velocidad de Movimiento | 5 — 60 | °/segundo |
+| Ciclos por Sesión | 1 — 200 | Repeticiones |
+| Pausa entre Ciclos | 0 — 10 | Segundos |
+
+---
+
+## 🚀 Impacto y Resultados
+
+- **Reducción de costo del 80%+** frente a equipos CPM comerciales importados.
+- **Validación positiva** con retroalimentación directa de personal de salud durante pruebas de prototipo.
+- Demostración de que la ingeniería local puede resolver necesidades médicas reales con recursos accesibles.
+
+---
+
+> Proyecto académico/investigación. Desarrollado por **Gustavo Matheus** · *Embedded Systems & Firmware Developer*
