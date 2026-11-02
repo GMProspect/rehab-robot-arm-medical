@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>Upper-Limb Continuous Passive Motion Rehabilitation Prototype</h1>
+  <h1>Upper-Limb Continuous Passive Motion Rehabilitation Armed Prototype With recycled components.</h1>
   <p><em>A programmable electromechanical apparatus for the controlled, repetitive passive mobilization of the elbow and wrist joints</em></p>
 
   [![Status](https://img.shields.io/badge/Status-Academic%20prototype-informational.svg)]()
