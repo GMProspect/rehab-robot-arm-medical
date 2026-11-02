@@ -99,4 +99,4 @@ The thesis, *Sistema de Movilidad Pasiva Continua para la Rehabilitación de Ext
 
 ---
 
-This repository presents the project and its results. It is an academic prototype, not a certified medical device.
+This repository presents the project and its results. The entire project is private.
