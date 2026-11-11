@@ -1,0 +1,4 @@
+viewer/*.js -whitespace linguist-generated=true
+viewer/experience/*.js -whitespace linguist-generated=true
+*.bin binary
+images/*.png binary
